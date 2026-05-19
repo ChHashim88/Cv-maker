@@ -1252,7 +1252,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
 
       const opt = {
         margin: [10, 10, 10, 10],
-        filename: `SkillSync_${name.trim().replace(/\s+/g, '_') || 'Resume'}.pdf`,
+        filename: `AICVMaker_${name.trim().replace(/\s+/g, '_') || 'Resume'}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: {
           scale: 2,
@@ -1333,7 +1333,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
           </span>
 
           <h2 className="text-3xl font-extrabold tracking-tight text-white mb-2 bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-            Welcome to SkillSync!
+            Welcome to AI CV Maker!
           </h2>
 
           <p className="text-slate-400 text-xs max-w-xs mb-8">
@@ -1388,7 +1388,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
               <Sparkles className="w-8 h-8 text-white animate-pulse" />
             </div>
             <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-              SkillSync
+              AI CV Maker
             </h1>
             <p className="text-xs text-violet-400 font-semibold uppercase tracking-widest mt-1">
               Resume Builder & ATS Optimizer
@@ -1494,7 +1494,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
 
         {/* Footer */}
         <div className="mt-8 text-xs text-slate-600 text-center uppercase tracking-widest">
-          SkillSync © Final Year Project • Made with React & Vite
+          AI CV Maker • Made with React & Vite
         </div>
       </div>
     );
@@ -1621,7 +1621,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
           </div>
           <div>
             <h1 className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent flex items-center gap-1.5">
-              <span>SkillSync</span>
+              <span>AI CV Maker</span>
               <Sparkles className="w-3.5 h-3.5 text-violet-400 animate-pulse" />
             </h1>
             <p className="text-[9px] text-violet-400 font-semibold tracking-widest uppercase -mt-0.5">Resume Workspace</p>
@@ -1655,7 +1655,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
               </svg>
             </div>
             <FolderOpen className="w-3.5 h-3.5 text-emerald-400/80 ml-2" />
-            <span>Saved Drafts</span>
+            <span className="hidden sm:inline">Saved Drafts</span>
             {savedResumesList.length > 0 && (
               <span className="w-4 h-4 rounded-full bg-violet-600 text-[9px] font-bold text-white flex items-center justify-center">
                 {savedResumesList.length}
@@ -1697,8 +1697,8 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
       </header>
 
       {/* ----------------- SUB NAVBAR TABS ----------------- */}
-      <nav className="bg-slate-950/40 border-b border-white/[0.04] px-4 md:px-8 py-2.5 flex items-center justify-between gap-4 select-none">
-        <div className="flex items-center gap-1">
+      <nav className="bg-slate-950/40 border-b border-white/[0.04] px-4 md:px-8 py-2.5 flex items-center justify-between gap-4 select-none overflow-x-auto scrollbar-none">
+        <div className="flex items-center gap-1 min-w-max">
           <button
             onClick={() => setCurrentPage('builder')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
@@ -1825,7 +1825,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
             <div className="w-px h-8 bg-gradient-to-b from-violet-500/30 to-transparent"></div>
             <p className="text-[8px] font-mono uppercase tracking-[0.3em] text-slate-600 flex items-center gap-1.5">
               <Code2 className="w-3 h-3 text-slate-500" />
-              Crafted with SkillSync OS
+              Crafted with AI CV Maker
             </p>
           </div>
         </div>
@@ -1848,7 +1848,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
             </div>
 
             {/* TAB SELECTOR */}
-            <div className="grid grid-cols-4 gap-1.5 p-1 rounded-xl bg-slate-950/60 border border-white/[0.04]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1 rounded-xl bg-slate-950/60 border border-white/[0.04]">
               {(['profile', 'skills', 'experience', 'extras'] as const).map((tab) => (
                 <button
                   key={tab}
@@ -1998,7 +1998,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
                         rows={2}
                         className="w-full px-3.5 py-2 rounded-lg bg-slate-950/80 border border-violet-500/25 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-violet-500 transition-all resize-none font-mono"
                       />
-                      <span className="text-[9px] text-slate-500">SkillSync will cross-analyze ATS matching scores against these inputs.</span>
+                      <span className="text-[9px] text-slate-500">AI CV Maker will cross-analyze ATS matching scores against these inputs.</span>
                     </div>
                   </div>
                 )}
@@ -2368,11 +2368,11 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
                         {role === 'custom' ? customRoleName : `${role.charAt(0).toUpperCase() + role.slice(1)} Developer`}
                       </p>
                     </div>
-                    <div className="text-right text-[11px] text-slate-500 space-y-0.5">
+                    <div className="text-left md:text-right text-[11px] text-slate-500 space-y-0.5">
                       {email && <p className="font-semibold text-slate-800">{email}</p>}
                       {phone && <p className="font-medium text-slate-700">{phone}</p>}
                       {location && <p>{location}</p>}
-                      <div className="flex flex-col items-end gap-0.5 mt-1 text-[10px] text-slate-400">
+                      <div className="flex flex-col items-start md:items-end gap-0.5 mt-1 text-[10px] text-slate-400">
                         {linkedin && <span>LinkedIn: {linkedin}</span>}
                         {github && <span>GitHub: {github}</span>}
                       </div>
@@ -2382,7 +2382,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
                   {/* Main split grid */}
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 flex-1">
                     {/* Left Column: Skills & Info (5/12 cols) */}
-                    <div className="md:col-span-4 flex flex-col gap-5 border-r pr-4 border-slate-100">
+                    <div className="md:col-span-4 flex flex-col gap-5 md:border-r md:pr-4 border-slate-100">
                       <div>
                         <h3 className="text-xs font-extrabold uppercase tracking-widest text-slate-500 mb-2.5">Skills</h3>
                         <div className="flex flex-wrap gap-1">
@@ -3210,7 +3210,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
               <div>
                 <h3 className="font-extrabold text-xs text-slate-200 flex items-center gap-2">
                   <Palette className="w-4 h-4 text-violet-400" />
-                  SkillSync Neuro-Mapping Radar
+                  AI CV Maker Neuro-Mapping Radar
                 </h3>
                 <p className="text-slate-400 text-[11px] mt-1">
                   Dynamic vector mapping measuring CV density, profiles parity, keywords structure, and social reachability.
@@ -3372,13 +3372,13 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
       <section className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16 border-t border-white/[0.04] mb-12">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-[10px] font-bold text-violet-400 uppercase tracking-[0.2em] bg-violet-400/5 border border-violet-500/10 px-3 py-1.5 rounded-full">
-            The SkillSync Advantage
+            The AI CV Maker Advantage
           </span>
           <h2 className="text-3xl font-black tracking-tight text-white mt-4 mb-3">
             Supercharge Your Job Search
           </h2>
           <p className="text-slate-400 text-xs md:text-sm font-medium leading-relaxed">
-            SkillSync is not just another resume form. It is a full-featured CV operating system designed to elevate your professional narrative and bypass hiring barriers.
+            AI CV Maker is not just another resume form. It is a full-featured CV operating system designed to elevate your professional narrative and bypass hiring barriers.
           </p>
         </div>
 
@@ -3467,7 +3467,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
             <div>
               <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
                 <Cpu className="w-5 h-5 text-violet-400 animate-pulse" />
-                SkillSync AI Intelligence Console
+                AI CV Maker AI Intelligence Console
               </h2>
               <p className="text-xs text-slate-400 mt-1">
                 Real-time career projections, mock interview simulators, and automated cover letter composing.
@@ -3771,7 +3771,7 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
             <div>
               <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
                 <Palette className="w-5 h-5 text-violet-400" />
-                SkillSync Design Gallery & Showroom
+                AI CV Maker Design Gallery & Showroom
               </h2>
               <p className="text-xs text-slate-400 mt-1">
                 Explore preset templates designed to meet recruitment standards across engineering and analytics.
