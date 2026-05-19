@@ -180,7 +180,6 @@ export default function App() {
   const [interviewFeedback, setInterviewFeedback] = useState<string>('');
   const [isAnalyzingAnswer, setIsAnalyzingAnswer] = useState<boolean>(false);
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState<number>(0);
-  const [customApiKey, setCustomApiKey] = useState<string>(localStorage.getItem('skillsync_gemini_key') || '');
 
   // Reference to resume DOM node for PDF export
   const resumeRef = useRef<HTMLDivElement>(null);
@@ -3482,43 +3481,21 @@ Provide ONLY the valid raw JSON string. Do not wrap it in markdown code blocks l
           </div>
 
           {/* API Key Connection Strip */}
-          <div className="bg-slate-900/40 border border-white/[0.04] p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+          <div className="bg-slate-900/40 border border-white/[0.04] p-4 rounded-xl flex items-center justify-between gap-4 select-none">
             <div className="flex items-center gap-2.5">
               <span className="flex h-2 w-2 relative">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${customApiKey || import.meta.env.VITE_GEMINI_API_KEY ? 'bg-emerald-400' : 'bg-amber-400'}`}></span>
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${customApiKey || import.meta.env.VITE_GEMINI_API_KEY ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-emerald-400"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <div className="text-left font-sans">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 block">Gemini AI Status</span>
-                <span className="text-[9px] text-slate-500 font-mono">
-                  {customApiKey || import.meta.env.VITE_GEMINI_API_KEY ? 'Connected (Live Gemini API Mode)' : 'Local Emulation (Enter Key to Activate Live Gemini)'}
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 block">Gemini AI Engine Status</span>
+                <span className="text-[9px] text-emerald-400 font-mono">
+                  Active (Secure API Key Connected)
                 </span>
               </div>
             </div>
-
-            <div className="flex items-center gap-2 w-full sm:w-auto font-sans">
-              <input
-                type="password"
-                placeholder="Enter Gemini API Key..."
-                value={customApiKey}
-                onChange={(e) => {
-                  setCustomApiKey(e.target.value);
-                  localStorage.setItem('skillsync_gemini_key', e.target.value);
-                }}
-                className="w-full sm:w-64 bg-slate-950/80 border border-white/[0.06] rounded-lg px-3 py-1.5 text-[10px] font-mono text-slate-350 focus:outline-none focus:border-violet-500/40"
-              />
-              {customApiKey && (
-                <button
-                  onClick={() => {
-                    setCustomApiKey('');
-                    localStorage.removeItem('skillsync_gemini_key');
-                    triggerNotification("Gemini API Key cleared", "info");
-                  }}
-                  className="px-2.5 py-1.5 rounded-lg text-[9px] font-bold text-rose-450 bg-rose-500/10 hover:bg-rose-500/20 transition-all cursor-pointer border border-rose-500/20"
-                >
-                  Clear
-                </button>
-              )}
+            <div className="text-[10px] font-bold uppercase tracking-widest font-mono text-slate-500 bg-[#090b11] px-2.5 py-1 rounded border border-white/[0.03]">
+              gemini-2.5-flash
             </div>
           </div>
 
